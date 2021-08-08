@@ -1,2 +1,3 @@
 # gravity_sim
-See readme
+
+Work in progress

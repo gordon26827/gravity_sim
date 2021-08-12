@@ -1,20 +1,26 @@
 package model;
 
-class Body {
-	double[] pos, vel, acc;
+import java.awt.Color;
+
+public class Body {
+	public double[] pos, vel, acc;
 	double mass;
 	
-	Body(double[] pos, double[] vel, double mass) {
+	public Color color;
+	
+	public Body(double[] pos, double[] vel, double mass, Color color) {
 		this.pos = pos;
 		this.vel = vel;
 		this.mass = mass;
+		this.color = color;
 		this.acc = new double[2];
 	}
 	
-	void tick(int factor) {
+	void tick() {
 		for (int i = 0; i < 2; i++) {
-			vel[i] += acc[i] * factor;
-			pos[i] += vel[i] * factor;
+			vel[i] += acc[i];
+			pos[i] += vel[i] + acc[i] / 2;
+			acc[i] = 0;
 		}
 	}
 	
